@@ -15,6 +15,7 @@
   .search
     background: $bgColor
     height: .72rem
+    margin-top: .88rem
     .search-inp
       margin: 0 auto
       width: 7.2rem

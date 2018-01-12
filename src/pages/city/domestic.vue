@@ -6,9 +6,9 @@
         <div class="area-name">{{content}}</div>
       </div>
     </div>
-    <div class="hotCity">
+    <div class="hot-city">
       <div class="area-tit">热门城市</div>
-      <div class="hotCity-con">
+      <div class="hot-city-con">
         <div class="area-name" v-for="item of list" :key="item.id" >{{item.position}}</div>
       </div>
     </div>
@@ -32,6 +32,7 @@
     line-height: .52rem
     padding-left: .3rem
     border-bottom: $borderStyle
+    border-top: $borderStyle
     background: #f5f5f5
     color: #5f5f5f
   .area-name
@@ -49,13 +50,13 @@
     .position-address
       overflow: hidden
       height: 1.08rem
-      border-bottom: $borderStyle
       .area-name
         border-color: $bgColor
-  .hotCity-con
+  .hot-city-con
+    margin-bottom: .24rem
     .area-name
       display: inline-block
       margin-right: 0
       color: #000
-      margin-bottom: 0   
+      margin-bottom: 0  
 </style>

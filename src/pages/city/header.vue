@@ -1,9 +1,11 @@
 <template>
-  <div class="header">
-    <div class="back iconfont">&#xe6ba;</div>
-    <div class="header-con" @click="handleSelected">
-      <div class="area" :class="DomesticSelected">国内</div>
-      <div class="area" :class="ForeignSelected" >国外</div>
+  <div class="header-container">
+    <div class="header">
+      <div class="back iconfont">&#xe6ba;</div>
+      <div class="header-con" @click="handleSelected">
+        <div class="area" :class="DomesticSelected">国内</div>
+        <div class="area" :class="ForeignSelected" >国外</div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,14 +41,18 @@
 
 <style lang='stylus' scoped>
   @import '../../assets/stylus/varibles.styl'
-  .header
+  .header-container
+    width: 100%
     height: .88rem
     line-height: .88rem
     background: $bgColor
     color: #fff
     font-size: .26rem
-    overflow: hidden
-    position: relative
+    position: fixed
+    top: 0
+    left: 0
+    .header
+      display: flex
     .back
       padding-left: .22rem
       padding-right: .22rem
