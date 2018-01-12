@@ -2,20 +2,20 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-position></city-position>
+    <city-domestic></city-domestic>
   </div>
 </template>
 
 <script>
   import CityHeader from './header'
   import CitySearch from './search'
-  import CityPosition from './position'
+  import CityDomestic from './domestic'
   export default {
     name: 'city',
     components: {
       CityHeader,
       CitySearch,
-      CityPosition
+      CityDomestic
     }
   }
 </script>
