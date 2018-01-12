@@ -13,18 +13,18 @@
 <style lang="stylus" scoped>
   @import '../../assets/stylus/varibles.styl'
   .search
-    background: $bgColor
     height: .72rem
     margin-top: .88rem
+    background: $bgColor
     .search-inp
-      margin: 0 auto
+      display: block
       width: 7.2rem
       height: .62rem
-      background: #fff
-      border: 0
+      margin: 0 auto
       text-align: center
       font-size: .26rem
-      color: #9e9e9e
-      display: block
+      background: #fff
+      border: 0      
       border-radius: .06rem
+      color: #9e9e9e
 </style>

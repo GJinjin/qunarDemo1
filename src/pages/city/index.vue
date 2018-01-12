@@ -41,7 +41,7 @@
         this.cityDomesticList = data.cityDomesticList
       },
       handleGetDataErr () {
-        console.log('请求失败')
+        console.log('error')
       }
     },
     created () {

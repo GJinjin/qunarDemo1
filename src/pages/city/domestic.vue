@@ -36,15 +36,15 @@
     background: #f5f5f5
     color: #5f5f5f
   .area-name
+    display: block
     height: .56rem
     width: 2.04rem
     line-height: .56rem
     text-align: center
-    border: $borderStyle
     margin: .24rem .3rem
+    border: $borderStyle
     border-radius: .06rem
     color: $bgColor
-    display: block
   .position
     font-size: .26rem
     .position-address
@@ -57,6 +57,6 @@
     .area-name
       display: inline-block
       margin-right: 0
+      margin-bottom: 0
       color: #000
-      margin-bottom: 0  
 </style>
