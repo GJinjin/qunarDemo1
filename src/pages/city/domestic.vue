@@ -3,16 +3,13 @@
     <div class="position">
       <div class="area-tit">您的位置</div>
       <div class="position-address">
-        <div class="area-name">北京</div>
+        <div class="area-name">{{content}}</div>
       </div>
     </div>
     <div class="hotCity">
       <div class="area-tit">热门城市</div>
       <div class="hotCity-con">
-        <div class="area-name">北京</div>
-        <div class="area-name">北京</div>
-        <div class="area-name">北京</div>
-        <div class="area-name">北京</div>
+        <div class="area-name" v-for="item of list" :key="item.id" >{{item.position}}</div>
       </div>
     </div>
   </div>
@@ -20,7 +17,11 @@
 
 <script>
   export default {
-    name: 'city-domestic'
+    name: 'city-domestic',
+    props: {
+      content: String,
+      list: Array
+    }
   }
 </script>
 
