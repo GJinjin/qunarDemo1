@@ -13,7 +13,7 @@
         </p>
       </div>
     </div>
-    <router-link to="/list"><div class="hot-more">查看更多产品</div></router-link>
+    <div class="hot-more"><router-link to="/list">查看更多产品</router-link></div>
   </div>
 </template>
 

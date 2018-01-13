@@ -4,8 +4,10 @@
       <swiper-slide v-for="(page, index) of pageList" :key="index">
         <div class="area-con">
           <div class="area-item" v-for="item of page" :key="item.id">
-            <img class="area-img" :src="item.imgUrl">
-            <p class="area-desc">{{item.title}}</p>
+            <router-link :to="item.link">
+              <img class="area-img" :src="item.imgUrl">
+              <p class="area-desc">{{item.title}}</p>
+            </router-link>
           </div>
         </div>
       </swiper-slide>
@@ -64,4 +66,5 @@
         text-overflow: ellipsis
         line-height: .4rem
         text-align: center
+        color: #000
 </style>
