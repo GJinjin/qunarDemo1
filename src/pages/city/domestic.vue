@@ -3,13 +3,15 @@
     <div class="position">
       <div class="area-tit">您的位置</div>
       <div class="position-address">
-        <div class="area-name">{{content}}</div>
+        <div class="area-name">{{city}}</div>
       </div>
     </div>
     <div class="hot-city">
       <div class="area-tit">热门城市</div>
       <div class="hot-city-con">
-        <div class="area-name" v-for="item of list" :key="item.id" >{{item.position}}</div>
+        <div class="area-name" v-for="item of list" :key="item.id" @click="handleClick" >
+          {{item.position}}
+        </div>
       </div>
     </div>
   </div>
@@ -19,8 +21,15 @@
   export default {
     name: 'city-domestic',
     props: {
-      content: String,
-      list: Array
+      list: Array,
+      city: String
+    },
+    methods: {
+      handleClick (e) {
+        localStorage.city = e.target.innerHTML
+        this.$bus.$emit('change', e.target.innerHTML)
+        this.$router.go(-1)
+      }
     }
   }
 </script>

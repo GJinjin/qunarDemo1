@@ -1,7 +1,9 @@
 <template>
   <div class="header-container">
     <div class="header">
-      <div class="back iconfont">&#xe6ba;</div>
+      <div class="back iconfont">
+        <router-link to="/" class="backColor">&#xe6ba;</router-link>
+      </div>
       <div class="header-con" @click="handleSelected">
         <div class="area" :class="DomesticSelected">国内</div>
         <div class="area" :class="ForeignSelected" >国外</div>
@@ -57,6 +59,8 @@
       padding-left: .22rem
       padding-right: .22rem
       position: absolute
+      .backColor
+        color: #fff
     .header-con
       width: 4.04rem
       height: .6rem

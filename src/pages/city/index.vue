@@ -2,7 +2,7 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-domestic :content="position" :list="cityList"></city-domestic>
+    <city-domestic :list="cityList" :city="city"></city-domestic>
     <city-domestic-list :list="cityDomesticList"></city-domestic-list>
   </div>
 </template>
@@ -23,22 +23,25 @@
     },
     data () {
       return {
-        position: '',
+        city: '',
         cityList: [],
         cityDomesticList: []
       }
     },
     methods: {
       getCityData () {
-        axios.get('/api/city.json')
+        const city = localStorage.city ? localStorage.city : ''
+        axios.get('/api/city.json?city=' + city)
             .then(this.handleGetDataSucc.bind(this))
             .catch(this.handleGetDataErr.bind(this))
       },
       handleGetDataSucc (res) {
         const data = res.data.data
-        this.position = data.position
+        this.city = data.city
         this.cityList = data.domesticHotCity
         this.cityDomesticList = data.cityDomesticList
+        // this.$bus.$emit('change', data.city)
+        localStorage.city = data.city
       },
       handleGetDataErr () {
         console.log('error')

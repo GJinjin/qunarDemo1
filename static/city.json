@@ -1,7 +1,7 @@
 {
   "ret": true,
   "data": {
-    "position": "北京",
+    "city": "北京",
     "domesticHotCity": [{
       "id": "001",
       "position": "北京",
