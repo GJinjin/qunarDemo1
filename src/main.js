@@ -8,6 +8,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'assets/css/reset.css'
 import 'assets/css/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+// import BScroll from 'better-scroll'
 
 FastClick.attach(document.body)
 Vue.config.productionTip = false
