@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import FastClick from 'fastclick'
 import FastClick from 'fastclick'
 import 'assets/css/reset.css'
-
+import 'assets/css/iconfont/iconfont.css'
+import BScroll from 'better-scroll'
+// FastClick.attach(document.body)
 FastClick.attach(document.body)
 Vue.config.productionTip = false
 
