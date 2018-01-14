@@ -5,8 +5,9 @@
         <div class="area-con">
           <div class="area-item" v-for="item of page" :key="item.id">
             <router-link :to="item.link">
-            <img class="area-img" :src="item.imgUrl">
-            <p class="area-desc">{{item.title}}</p></router-link>
+              <img class="area-img" :src="item.imgUrl">
+              <p class="area-desc">{{item.title}}</p>
+            </router-link>
           </div>
         </div>
       </swiper-slide>
