@@ -41,12 +41,12 @@
       line-height: .44rem
       margin: .24rem .22rem
       .left-time
-        width: 2.5rem
         float: left
+        width: 2.5rem
         font-size: .18rem
       .left-fade
-        width: 1.5rem
         float: left
+        width: 1.5rem
         font-size: .18rem
     .char-right
       width: 2.11rem
@@ -59,6 +59,6 @@
           color: #ff8300
       .right-p1
         font-size: .22rem
-        color: #7bdce9
         padding: .78rem .16rem .6rem .9rem
+        color: #7bdce9
 </style>
