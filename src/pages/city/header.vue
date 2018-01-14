@@ -44,32 +44,32 @@
 <style lang='stylus' scoped>
   @import '../../assets/stylus/varibles.styl'
   .header-container
-    width: 100%
-    height: .88rem
-    line-height: .88rem
-    background: $bgColor
-    color: #fff
-    font-size: .26rem
     position: fixed
     top: 0
     left: 0
+    width: 100%
+    height: .88rem
+    line-height: .88rem
+    font-size: .26rem
+    background: $bgColor
+    color: #fff    
     .header
       display: flex
     .back
+      position: absolute
       padding-left: .22rem
       padding-right: .22rem
-      position: absolute
       .backColor
         color: #fff
     .header-con
+      display: flex
       width: 4.04rem
       height: .6rem
-      border: .02rem solid #fff
-      border-radius: .06rem
       margin: .14rem auto
       line-height: .74rem
       text-align: center
-      display: flex
+      border: .02rem solid #fff
+      border-radius: .06rem
       .area
         width: 2.02rem
       .active

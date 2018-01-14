@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="domestic-con" v-for="items of list" :type="items.type">
+    <div class="domestic-con" v-for="items of list">
       <div class="area-tit">{{items.type}}</div>
       <div class="area-list">
         <div class="area-con" v-for="item of items.list">{{item}}</div>
       </div>
     </div>
     <ul class="domestic-list">
-      <li v-for="item of list" @click="handleClick">{{item.type}}</li>
+      <li v-for="(item, index) of list" @click="handleClick(index)">{{item.type}}</li>
     </ul>
   </div>
 </template>
@@ -20,7 +20,15 @@
       'type': String
     },
     methods: {
-      handleClick (e) {
+      handleClick (index) {
+        let jump = document.querySelectorAll('.domestic-con')
+        let scrollTop = jump[index].offsetTop
+        // Chrome
+        document.documentElement.scrollTop = scrollTop - 44
+        // Firefox
+        document.body.scrollTop = scrollTop - 44
+        // Safari
+        window.pageYOffset = scrollTop
       }
     }
   }

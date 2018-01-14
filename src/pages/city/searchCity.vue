@@ -18,6 +18,7 @@
   position: absolute;
   top: 1.6rem;
   width: 100%;
+  z-index: 1
   background: #fff;
   .city-show
     overflow: hidden
