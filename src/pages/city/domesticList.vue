@@ -28,7 +28,7 @@
         // Firefox
         document.body.scrollTop = scrollTop - 44
         // Safari
-        window.pageYOffset = scrollTop
+        window.pageYOffset = scrollTop - 44
       }
     }
   }

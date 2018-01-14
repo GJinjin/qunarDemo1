@@ -31,7 +31,7 @@
     },
     methods: {
       getIndexData () {
-        const city = localStorage.city ? localStorage.city : ''
+        const city = localStorage.city ? localStorage.city : '北京'
         axios.get('/api/index.json?city=' + city)
           .then(this.handleGetDataSucc.bind(this))
           .catch(this.handleGetDataErr.bind(this))
@@ -52,7 +52,8 @@
       },
       handleCityChange (value) {
         this.city = value
-        this.getIndexData()
+        localStorage.city = value
+        // this.getIndexData()
       }
     },
     created () {

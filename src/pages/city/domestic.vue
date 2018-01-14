@@ -21,15 +21,22 @@
   export default {
     name: 'city-domestic',
     props: {
-      list: Array,
-      city: String
+      list: Array
+    },
+    data () {
+      return {
+        city: localStorage.city ? localStorage.city : '北京'
+      }
     },
     methods: {
       handleClick (e) {
-        localStorage.city = e.target.innerHTML
+        // localStorage.city = e.target.innerHTML
         this.$bus.$emit('change', e.target.innerHTML)
         this.$router.go(-1)
       }
+    },
+    activated () {
+      this.city = localStorage.city ? localStorage.city : '北京'
     }
   }
 </script>
