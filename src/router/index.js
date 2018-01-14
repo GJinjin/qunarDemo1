@@ -4,6 +4,7 @@ import Index from '@/pages/index'
 import City from '@/pages/city'
 import List from '@/pages/list'
 import Order from '@/pages/order'
+import Details from '@/pages/details'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/order',
       name: 'Order',
       component: Order
+    }, {
+      path: '/details',
+      name: 'Details',
+      component: Details
     }
   ]
 })
