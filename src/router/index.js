@@ -15,6 +15,18 @@ export default new Router({
       path: '/city',
       name: 'City',
       component: City
+    }, {
+      path: '/list',
+      name: 'List',
+      component: List
+    }, {
+      path: '/order',
+      name: 'Order',
+      component: Order
+    }, {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })
