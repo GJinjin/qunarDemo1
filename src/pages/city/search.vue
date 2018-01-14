@@ -1,12 +1,18 @@
 <template>
   <div class="search">
-    <input class="search-inp" type="text" placeholder="输入城市名或拼音">
+    <input class="search-inp" type="text" placeholder="输入城市名或拼音" @keyup="handleSearchCity">
   </div>
 </template>
 
 <script>
   export default {
-    name: 'city-search'
+    name: 'city-search',
+    methods: {
+      handleSearchCity (e) {
+        var inputValue = e.target.value
+        this.$emit('searchCity', inputValue)
+      }
+    }
   }
 </script>
 

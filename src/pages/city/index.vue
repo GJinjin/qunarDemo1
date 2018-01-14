@@ -1,7 +1,8 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search @searchCity="handleShowCity"></city-search>
+    <city-show v-if="show" :showCity="showCity"></city-show>
     <city-domestic :list="cityList" :city="city"></city-domestic>
     <city-domestic-list :list="cityDomesticList"></city-domestic-list>
   </div>
@@ -10,6 +11,7 @@
 <script>
   import CityHeader from './header'
   import CitySearch from './search'
+  import CityShow from './searchCity'
   import CityDomestic from './domestic'
   import CityDomesticList from './domesticList'
   import axios from 'axios'
@@ -19,13 +21,16 @@
       CityHeader,
       CitySearch,
       CityDomestic,
-      CityDomesticList
+      CityDomesticList,
+      CityShow
     },
     data () {
       return {
         city: '',
         cityList: [],
-        cityDomesticList: []
+        cityDomesticList: [],
+        showCity: [],
+        show: false
       }
     },
     methods: {
@@ -45,6 +50,37 @@
       },
       handleGetDataErr () {
         console.log('error')
+      },
+      handleShowCity (e) {
+        var domesticList = []
+        var cityListLength = this.cityDomesticList.length
+        if (e) {
+          var reg = /^[\u4e00-\u9fa5]+$/
+          if (reg.test(e)) {
+            this.showCity = []
+            for (var i = 0; i < cityListLength; i++) {
+              var domesticCityList = this.cityDomesticList[i].list
+              domesticList.push(domesticCityList)
+            }
+            var list = domesticList.length
+            for (var j = 0; j < list; j++) {
+              var item = domesticList[j].length
+              for (var k = 0; k < item; k++) {
+                if (domesticList[j][k].indexOf(e) !== -1) {
+                  this.showCity.push(domesticList[j][k])
+                }
+              }
+            }
+          }
+          if (this.showCity) {
+            this.show = true
+          } else {
+            this.show = false
+          }
+        } else {
+          this.showCity = []
+          this.show = false
+        }
       }
     },
     created () {
