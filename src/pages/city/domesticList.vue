@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="domestic-con" v-for="items of list">
+    <div class="domestic-con" v-for="items of list" ref="type">
       <div class="area-tit">{{items.type}}</div>
       <div class="area-list">
         <div class="area-con" v-for="item of items.list">{{item}}</div>
@@ -21,8 +21,7 @@
     },
     methods: {
       handleClick (index) {
-        let jump = document.querySelectorAll('.domestic-con')
-        let scrollTop = jump[index].offsetTop
+        let scrollTop = this.$refs.type[index].offsetTop
         // Chrome
         document.documentElement.scrollTop = scrollTop - 44
         // Firefox
