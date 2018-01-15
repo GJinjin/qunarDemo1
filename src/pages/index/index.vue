@@ -1,6 +1,6 @@
 <template>
   <div>
-    <index-header :city="city"></index-header>
+    <index-header :city="$store.state.city"></index-header>
     <index-swiper :list="swiperInfo"></index-swiper>
     <index-icons :list="iconsInfo"></index-icons>
     <index-hotshow :list="hotShowInfo"></index-hotshow>
@@ -29,7 +29,6 @@
     },
     data () {
       return {
-        city: '',
         swiperInfo: [],
         iconsInfo: [],
         hotShowInfo: [],
@@ -38,8 +37,7 @@
     },
     methods: {
       getIndexData () {
-        const city = localStorage.city ? localStorage.city : '北京'
-        axios.get('/api/index.json?city=' + city)
+        axios.get('/api/index.json?city=' + this.$store.state.city)
           .then(this.handleGetDataSucc.bind(this))
           .catch(this.handleGetDataErr.bind(this))
       },
@@ -48,25 +46,22 @@
         this.swiperInfo = data.swiperList
         this.iconsInfo = data.iconList
         this.hotShowInfo = data.hotShowList
-        this.city = data.city
-        localStorage.city = data.city
         this.weekendInfo = data.weekendList
+        if (!this.$store.state.city) {
+          this.$store.commit('changeCity', data.city)
+        }
       },
       handleGetDataErr () {
         console.log('error')
-      },
-      bindEvents () {
-        this.$bus.$on('change', this.handleCityChange.bind(this))
-      },
-      handleCityChange (value) {
-        this.city = value
-        localStorage.city = value
-        // this.getIndexData()
       }
     },
     created () {
       this.getIndexData()
-      this.bindEvents()
+    },
+    watch: {
+      '$store.state.city' () {
+        this.getIndexData()
+      }
     }
   }
 </script>
