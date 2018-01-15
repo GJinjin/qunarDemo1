@@ -3,7 +3,7 @@
     <div class="position">
       <div class="area-tit">您的位置</div>
       <div class="position-address">
-        <div class="area-name">{{city}}</div>
+        <div class="area-name">{{$store.state.city}}</div>
       </div>
     </div>
     <div class="hot-city">
@@ -23,20 +23,11 @@
     props: {
       list: Array
     },
-    data () {
-      return {
-        city: localStorage.city ? localStorage.city : '北京'
-      }
-    },
     methods: {
       handleClick (e) {
-        // localStorage.city = e.target.innerHTML
-        this.$bus.$emit('change', e.target.innerHTML)
+        this.$store.commit('changeCity', e.target.innerHTML)
         this.$router.go(-1)
       }
-    },
-    activated () {
-      this.city = localStorage.city ? localStorage.city : '北京'
     }
   }
 </script>
