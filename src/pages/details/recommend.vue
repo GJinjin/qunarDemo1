@@ -14,7 +14,7 @@
       </div>
       <div class="con-right">
         <p class="money">{{item.price}}</p>
-        <div class="reserve">预定</div>
+        <router-link to="/order"><div class="reserve">预定</div></router-link>
       </div>
     </div>
   </div>

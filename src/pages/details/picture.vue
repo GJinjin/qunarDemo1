@@ -18,7 +18,7 @@
    <div class="showPic" v-show="isShow">
      <div class="top" @click="handleClick"></div>
      <div class="bottom">
-       <swiper :options="swiperOption">
+       <swiper :options="swiperOption" v-if="list.length">
         <swiper-slide v-for="item of list" :key="item.id">
           <img :src="item.url" class="img">
         </swiper-slide>

@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <router-link to="./list">
+    <router-link to="/details">
       <div class="back iconfont">&#xe6ba;</div>
     </router-link>
     <div class="fill">
