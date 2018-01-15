@@ -26,7 +26,6 @@
     },
     data () {
       return {
-        // city: '',
         cityList: [],
         cityDomesticList: [],
         showCity: [],
@@ -35,7 +34,7 @@
     },
     methods: {
       getCityData () {
-        axios.get('/api/city.json')
+        axios.get('/api/city.json?city=' + this.$store.state.city)
             .then(this.handleGetDataSucc.bind(this))
             .catch(this.handleGetDataErr.bind(this))
       },
