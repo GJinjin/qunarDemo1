@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    city: localStorage.city ? localStorage.city : ''
+    city: localStorage.city || ''
   },
   mutations: {
     changeCity (state, city) {

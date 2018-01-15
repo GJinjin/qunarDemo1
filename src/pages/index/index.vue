@@ -17,6 +17,7 @@
   import IndexWeekend from './weekend'
   import IndexBottom from './bottom'
   import axios from 'axios'
+  import { mapState } from 'vuex'
   export default {
     name: 'index',
     components: {
@@ -35,9 +36,14 @@
         weekendInfo: []
       }
     },
+    computed: {
+      ...mapState({
+        city: 'city'
+      })
+    },
     methods: {
       getIndexData () {
-        axios.get('/api/index.json?city=' + this.$store.state.city)
+        axios.get('/api/index.json?city=' + this.city)
           .then(this.handleGetDataSucc.bind(this))
           .catch(this.handleGetDataErr.bind(this))
       },
@@ -47,7 +53,7 @@
         this.iconsInfo = data.iconList
         this.hotShowInfo = data.hotShowList
         this.weekendInfo = data.weekendList
-        if (!this.$store.state.city) {
+        if (!this.city) {
           this.$store.commit('changeCity', data.city)
         }
       },
@@ -59,7 +65,7 @@
       this.getIndexData()
     },
     watch: {
-      '$store.state.city' () {
+      city () {
         this.getIndexData()
       }
     }
